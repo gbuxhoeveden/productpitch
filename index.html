@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<title>Explore European Railway Incident Data</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=1274, user-scalable=no">
+	<meta name="description" content="Explore European Railway Incident Data">
+	<meta name="author" content="Geltmar von Buxhoeveden">
+	<meta name="generator" content="slidify" />
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/frameworks/shower/themes/ribbon/styles/screen.css">
+	<link rel="stylesheet" media="print"
+	  href="libraries/frameworks/shower/themes/ribbon/styles/print.css">
+	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css">  <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+	<!--
+		To apply styles to the certain slides
+		use slide ID to get needed elements
+		-->
+	<style>
+		#Cover h2 {
+      margin:65px 0 0;
+			color:#FFF;
+			text-align:center;
+			font-size:70px;
+			}
+		#FitToWidth h2,
+		#FitToHeight h2 {
+			color:#FFF;
+			text-align:center;
+			}
+	</style> 
+</head>
+<body class="list">
+  <header class="caption">
+  	<h1>Explore European Railway Incident Data</h1>
+	</header>
+  <section class="slide " id="slide-1">
+  <div>
+    <h2>Explore European Railway Incident Data</h2>
+    <h3>Visualization of incident data from the European Railway Agency</h3>
+
+<h3><strong>Agenda</strong></h3>
+
+<h4>Motivation</h4>
+
+<h4>Methodology</h4>
+
+<h4>Result</h4>
+
+<h4>Try the <a href="http://geltmar.shinyapps.io/spielwiese">Live shiny app</a></h4>
+
+<p><footer class = 'logo'>
+<img src = 'assets/img/logo.jpeg'></img>
+</footer></p>
+
+  </div>
+</section>
+<section class="slide class" id="id">
+  <div>
+    <h2>Motivation</h2>
+    <ul>
+<li>Since 2006 the European Railway Agency (<a href="http://www.era.europa.eu">ERA</a>) is collecting railway incident data</li>
+<li>The data is used to define Common Safety Targets (<a href="http://www.era.europa.eu/Core-Activities/Safety/Safety-Performance/Pages/Common-Safety-Targets.aspx">CST</a>)</li>
+<li><strong>But:</strong> The data from the 26 member states (with railways) is very inconsistent</li>
+<li><strong>So:</strong> To explore the inconsistencies a shiny app was developed for the coursera class <a href="https://class.coursera.org/devdataprod-002">Developing Data Products</a></li>
+</ul>
+
+<p><footer class = 'logo'>
+<img src = 'assets/img/logo.jpeg'></img>
+</footer></p>
+
+  </div>
+</section>
+<section class="slide " id="slide-3">
+  <div>
+    <h2>Methodology</h2>
+    <ul>
+<li>Development of an R shiny app</li>
+<li>Make countries selectable</li>
+<li>Make incident types selectable</li>
+<li>Allow to set time span for data</li>
+</ul>
+
+<p><footer class = 'logo'>
+<img src = 'assets/img/logo.jpeg'></img>
+</footer></p>
+
+  </div>
+</section>
+<section class="slide " id="slide-4">
+  <div>
+    <h2>Result</h2>
+    <ul>
+<li>Output graphics are done with ggplot2 like this</li>
+</ul>
+
+<pre><code class="r">p &lt;- ggplot(data = rail, aes(x = Country, fill = factor(Occurrence.type))) + 
+    geom_bar(stat = &quot;bin&quot;) + coord_flip() + guides(fill = guide_legend(title = &quot;Type&quot;)) + 
+    labs(title = &quot;Country breakdown\n&quot;) + ylab(&quot;Number of Incidents&quot;) + xlab(&quot;Country&quot;)
+</code></pre>
+
+<p><footer class = 'logo'>
+<img src = 'assets/img/logo.jpeg'></img>
+</footer></p>
+
+  </div>
+</section>
+<section class="slide " id="slide-5">
+  <div>
+    <h2>Result</h2>
+    <p><img src="assets/fig/unnamed-chunk-2.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+  </div>
+</section>
+  <div class="progress">
+    <div></div>
+  </div>
+	<script src="libraries/frameworks/shower/shower.js"></script>
+	<!-- LOAD HIGHLIGHTER JS FILES -->
+	<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+	 
+		<!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+	<!-- Photos by John Carey — fiftyfootshadows.net -->
+</body>
+</html>
